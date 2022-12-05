@@ -15,16 +15,16 @@ const Slider = () => {
   ];
 
   const prevSlide = () => {
-    console.log(currentSlide);
+    setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
   }
 
   const nextSlide = () => {
-    console.log(setCurrentSlide(currentSlide + 100));
+    setCurrentSlide(currentSlide === 2 ? 0 : (nxt) => nxt + 1);
   }
 
   return (
     <div className='slider'>
-      <div className="container">
+      <div className="container" style={{transform: `translateX(-${currentSlide * 100}vw)`}}>
         <img src={data[0]} alt="" />
         <img src={data[1]} alt="" />
         <img src={data[2]} alt="" />
