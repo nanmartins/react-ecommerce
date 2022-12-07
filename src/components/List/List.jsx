@@ -38,6 +38,8 @@ const List = () => {
       oldPrice: 80,
       price: 39,
     },
+
+
   ]
 
 
