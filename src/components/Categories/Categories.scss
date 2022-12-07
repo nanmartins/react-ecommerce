@@ -46,6 +46,10 @@
           font-weight: 600;
           cursor: poiter;
 
+            .link {
+              padding: 20px;
+            }
+
             &:hover {
               background-color: rgba(255, 255, 255, 0.797);
             }
