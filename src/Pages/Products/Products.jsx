@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import Contact from '../../components/Contact/Contact';
 import List from "../../components/List/List";
 import "./Products.scss";
 
@@ -11,6 +12,7 @@ const Products = () => {
   const [ sort, setSort ] = React.useState(null);
 
   return (
+    <>
     <div className='products'>
       <div className="left">
         <div className="filterItem">
@@ -52,6 +54,8 @@ const Products = () => {
         <List catId={catId} maxPrice={maxPrice} sort={sort} />
       </div>
     </div>
+    <Contact />
+    </>
   )
 }
 

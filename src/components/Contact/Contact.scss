@@ -25,11 +25,13 @@
           border: none;
           color: white;
           background-color: #333;
+          cursor: pointer;
         }
 
         .icon {
           display: flex;
           gap: 10px;
+          cursor: pointer;
         }
     }
 }
