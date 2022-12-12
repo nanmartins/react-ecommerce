@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import Contact from '../../components/Contact/Contact';
 import List from "../../components/List/List";
+import useFetch from '../../Hooks/useFetch';
 import "./Products.scss";
 
 
@@ -10,6 +11,13 @@ const Products = () => {
   const catId = parseInt(useParams().id);
   const [ maxPrice, setMaxPrice ] = React.useState(1000);
   const [ sort, setSort ] = React.useState(null);
+  const [ selectedSubCategories, setSelectedSubCategories ] = React.useState([]);
+
+  const { data, loading, error } = useFetch(`/sub-categories?[filters][categories][id][$eq]=${catId}`);
+
+  const handleChange = (e) => {
+    console.log(e);
+  }
 
   return (
     <>
@@ -17,18 +25,12 @@ const Products = () => {
         <div className="left">
           <div className="filterItem">
             <h2>Product Categories</h2>
-            <div className="inputItem">
-              <input type="checkbox" id="1" value={1} />
-              <label htmlFor="1">Women</label>
-            </div>
-            <div className="inputItem">
-              <input type="checkbox" id="2" value={2} />
-              <label htmlFor="2">Men</label>
-            </div>
-            <div className="inputItem">
-              <input type="checkbox" id="3" value={3} />
-              <label htmlFor="3">Kids</label>
-            </div>
+            {data?.map((item) => (
+              <div className="inputItem"  key={item.id}>
+                <input type="checkbox" id={item.id} value={item.id} onChange={handleChange}/>
+                <label htmlFor={item.id}>{item.attributes.title}</label>
+              </div>
+            )) }
           </div>
           <div className="filterItem">
             <h2>Filter by price</h2>
