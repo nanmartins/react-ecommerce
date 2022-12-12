@@ -16,8 +16,14 @@ const Products = () => {
   const { data, loading, error } = useFetch(`/sub-categories?[filters][categories][id][$eq]=${catId}`);
 
   const handleChange = (e) => {
-    console.log(e);
-  }
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedSubCategories(isChecked
+      ? [ ...selectedSubCategories, value ]
+      : selectedSubCategories.filter((item) => item !== value));
+  };
+
 
   return (
     <>
@@ -53,7 +59,7 @@ const Products = () => {
 
         <div className="right">
           <img className='catImg' src="https://images.pexels.com/photos/206430/pexels-photo-206430.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-          <List catId={catId} maxPrice={maxPrice} sort={sort} />
+          <List catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCategories} />
         </div>
       </div>
       <Contact />
