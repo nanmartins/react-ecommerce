@@ -10,7 +10,7 @@ const Products = () => {
 
   const catId = parseInt(useParams().id);
   const [ maxPrice, setMaxPrice ] = React.useState(1000);
-  const [ sort, setSort ] = React.useState(null);
+  const [ sort, setSort ] = React.useState("asc");
   const [ selectedSubCategories, setSelectedSubCategories ] = React.useState([]);
 
   const { data, loading, error } = useFetch(`/sub-categories?[filters][categories][id][$eq]=${catId}`);
@@ -52,8 +52,8 @@ const Products = () => {
               <label htmlFor='asc'>Price (Lowest first)</label>
             </div>
             <div className="inputItem">
-              <input type="radio" id="desc" value="desc" name="price" onChange={(e) => setSort("asc")} />
-              <label htmlFor='desc'>Price (Heighest first)</label>
+              <input type="radio" id="desc" value="desc" name="price" onChange={(e) => setSort("desc")} />
+              <label htmlFor='desc'>Price (Highest first)</label>
             </div>
           </div>
         </div>
