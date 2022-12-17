@@ -21,7 +21,8 @@ const Products = () => {
 
     setSelectedSubCategories(isChecked
       ? [ ...selectedSubCategories, value ]
-      : selectedSubCategories.filter((item) => item !== value));
+      : selectedSubCategories.filter((item) => item !== value)
+    );
   };
 
 
@@ -47,11 +48,11 @@ const Products = () => {
           <div className="filterItem">
             <h2>Sort by</h2>
             <div className="inputItem">
-              <input type="radio" id="asc" value="asc" name="price" onChange={e => setSort("asc")} />
+              <input type="radio" id="asc" value="asc" name="price" onChange={(e) => setSort("asc")} />
               <label htmlFor='asc'>Price (Lowest first)</label>
             </div>
             <div className="inputItem">
-              <input type="radio" id="desc" value="desc" name="price" onChange={e => setSort("asc")} />
+              <input type="radio" id="desc" value="desc" name="price" onChange={(e) => setSort("asc")} />
               <label htmlFor='desc'>Price (Heighest first)</label>
             </div>
           </div>
