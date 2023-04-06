@@ -35,3 +35,27 @@
         }
     }
 }
+
+
+
+@media (max-width: 1140px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    margin: auto;
+
+      .icon {
+        margin-top: 10px;
+      }
+  }
+  .mail {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 571px) {
+  .wrapper {
+    width: auto;
+    margin: auto;
+  }
+}
